@@ -46,7 +46,7 @@ a { color: inherit; }
   background: radial-gradient(ellipse at 50% -10%, rgba(193, 18, 31, .32), transparent 62%);
   border-bottom: 1px solid var(--line);
 }
-.hero-logo { height: auto; border-radius: 14px; margin-bottom: 28px; box-shadow: 0 0 44px rgba(193, 18, 31, .4); }
+.hero-logo { height: auto; border-radius: 50%; margin-bottom: 28px; box-shadow: 0 0 44px rgba(193, 18, 31, .4); }
 .eyebrow { font-family: var(--label); text-transform: uppercase; letter-spacing: .4em; color: var(--brass); font-size: 16px; margin: 0 0 8px; padding-left: .4em; }
 .hero h1 {
   font-family: var(--display); font-weight: 400;
