@@ -1,16 +1,16 @@
-// EDIT THIS: all of the site's content lives here. These are placeholders.
+// EDIT THIS: the site's content lives here.
 const GUILD = {
   stats: [
     { value: "4+", label: "Years together" },
     { value: "248", label: "Discord members" },
     { value: "Aug 2026", label: "First full clear" },
-    { value: "1", label: "Family" },
   ],
   timeline: [
     { date: "June 30, 2022", title: "The record begins", text: "The first report goes up in #logs-for-dayz. Nights together start getting written down." },
     { date: "July 2022", title: "A routine forms", text: "More reports, more regulars, the same crew showing up." },
-    { date: "2022 – 2026", title: "Four years together", text: "Everything in between. Add your milestones here." },
+    { date: "2022 – 2026", title: "Four years together", text: "The wipes, the music, the inside jokes and everything in between." },
     { date: "August 4, 2026", title: "First full clear", text: "Leyenelf posted it: \"GARY DOWN! FIRST FULL CLEAR BABY!\"" },
+    { date: "Encore", title: "The Final Tour", text: "Thank you for every night." },
   ],
   // From the lyrics of "Brothers of Azeroth". Add roles and real stories.
   crew: [
@@ -26,60 +26,115 @@ const GUILD = {
   ],
 };
 
-const el = (tag, cls, html) => {
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => {
   const n = document.createElement(tag);
   if (cls) n.className = cls;
-  if (html !== undefined) n.textContent = html;
+  if (text !== undefined) n.textContent = text;
   return n;
 };
 
 GUILD.stats.forEach(s => {
   const d = el("div", "stat");
   d.append(el("b", "", s.value), el("span", "", s.label));
-  document.getElementById("stats").append(d);
+  $("stats").append(d);
 });
 
 GUILD.timeline.forEach(t => {
   const li = el("li");
   li.append(el("time", "", t.date), el("h3", "", t.title), el("p", "", t.text));
-  document.getElementById("timeline-list").append(li);
+  $("timeline-list").append(li);
 });
 
 GUILD.crew.forEach(m => {
   const c = el("article", "card");
-  c.append(el("div", "avatar", m.name[0]), el("h3", "", m.name), el("div", "role", m.role), el("p", "", m.text));
-  document.getElementById("crew-list").append(c);
+  c.append(el("div", "role", m.role), el("h3", "", m.name), el("p", "", m.text));
+  $("crew-list").append(c);
 });
 
-// Wall of Fame (stored in this browser only)
+// ---- Farewell wall ----
+// Shared across viewers when the host page provides the `db` capability and the
+// viewer may write. Otherwise it falls back to this browser's localStorage.
 const KEY = "guild-wall";
-const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } };
-const save = v => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} };
-let posts = load();
+const LOCAL_NOTE = "Leave a line for the guild. It is saved in this browser only.";
+const form = $("wall-form");
+const note = $("wall-note");
+const list = $("wall-list");
+let shared = null; // a db collection when the shared wall is in use
 
-function renderWall() {
-  const ul = document.getElementById("wall-list");
-  ul.replaceChildren();
-  posts.slice().reverse().forEach(p => {
+function renderWall(posts) {
+  list.replaceChildren();
+  if (!posts.length) {
+    list.append(el("li", "empty", "No messages yet. Be the first to say goodbye."));
+    return;
+  }
+  posts.forEach(p => {
     const li = el("li");
     li.append(el("b", "", p.name + ": "), document.createTextNode(p.msg));
-    ul.append(li);
+    list.append(li);
   });
 }
 
-document.getElementById("wall-form").addEventListener("submit", e => {
+const local = {
+  load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } },
+  save(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} },
+};
+
+function useLocalWall() {
+  shared = null;
+  form.hidden = false;
+  note.textContent = LOCAL_NOTE;
+  renderWall(local.load().slice().reverse());
+}
+
+async function initWall() {
+  useLocalWall();
+  try {
+    const db = await window.claude?.use?.("db");
+    if (!db) return;
+    const user = await window.claude.use("user");
+    const canWrite = user ? await user.can("data.write") : null;
+    const col = db.collection("wall");
+    shared = col;
+    note.textContent = "Leave a line for the guild: a memory, a shout-out, a thank you. Everyone here can read it.";
+    if (canWrite === false) {
+      form.hidden = true;
+      note.textContent = "Messages for the guild appear here. Ask Sol for contributor access to add yours.";
+    }
+    col.orderBy("at", "desc").limit(300).onSnapshot(
+      snap => renderWall(snap.docs.map(d => d.data())),
+      useLocalWall
+    );
+  } catch {
+    useLocalWall();
+  }
+}
+
+form.addEventListener("submit", async e => {
   e.preventDefault();
-  const name = document.getElementById("wall-name");
-  const msg = document.getElementById("wall-msg");
-  posts.push({ name: name.value.trim(), msg: msg.value.trim() });
-  save(posts);
-  renderWall();
-  e.target.reset();
+  const name = $("wall-name").value.trim();
+  const msg = $("wall-msg").value.trim();
+  if (!name || !msg) return;
+  if (shared) {
+    try {
+      await shared.add({ name, msg, at: Date.now() });
+      form.reset();
+    } catch {
+      form.hidden = true;
+      note.textContent = "Messages can't be added from this view. Ask Sol for contributor access.";
+    }
+    return;
+  }
+  const posts = local.load();
+  posts.push({ name, msg });
+  local.save(posts);
+  renderWall(posts.slice().reverse());
+  form.reset();
 });
 
-renderWall();
+initWall();
 
-// Live Discord stats, fetched in the visitor's browser. Falls back silently.
+// ---- Live Discord stats (works on a normal website; hosts that block it fall back silently) ----
 (async () => {
   try {
     const r = await fetch("https://discord.com/api/v9/invites/9A5HTbq2h?with_counts=true");
@@ -87,16 +142,13 @@ renderWall();
     const d = await r.json();
     const g = d.guild;
     if (!g) return;
-    document.getElementById("c-name").textContent = g.name;
+    $("c-name").textContent = g.name;
     if (g.icon) {
-      const img = document.getElementById("c-icon");
-      img.src = `https://cdn.discordapp.com/icons/${g.id}/${g.icon}.png?size=128`;
-      img.hidden = false;
+      $("c-icon").src = `https://cdn.discordapp.com/icons/${g.id}/${g.icon}.png?size=128`;
+      $("c-icon").hidden = false;
     }
-    const counts = document.getElementById("c-counts");
+    const counts = $("c-counts");
     counts.replaceChildren();
-    const dot = document.createElement("span");
-    dot.className = "dot";
-    counts.append(dot, `${d.approximate_presence_count} online · ${d.approximate_member_count} members`);
+    counts.append(el("span", "dot"), `${d.approximate_presence_count} online · ${d.approximate_member_count} members`);
   } catch {}
 })();
