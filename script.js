@@ -12,13 +12,17 @@ const GUILD = {
     { date: "The Glory", title: "The kill everyone remembers", text: "The boss that finally went down. Replace with the real one." },
     { date: "Today", title: "Still here", text: "Tags fade, expansions end, the friendships stay." },
   ],
+  // From the lyrics of "Brothers of Azeroth". Add roles and real stories.
   crew: [
-    { name: "Guild Master", role: "Founder", text: "Started it all. Held it together." },
-    { name: "Raid Leader", role: "Officer", text: "Called the pulls, ate the blame." },
-    { name: "Loot Officer", role: "Officer", text: "Keeper of the loot rules and the drama." },
-    { name: "The Tank", role: "Tank", text: "Never let anyone fall." },
-    { name: "The Healer", role: "Healer", text: "Always one heal short, always one heal enough." },
-    { name: "The Wildcard", role: "DPS", text: "Pulled before the tank. Every time. We loved it." },
+    { name: "Solmotley", role: "Leader", text: "Solmotley leads, we'll never fall." },
+    { name: "Kuddless Bubba", role: "Always by our side", text: "Stands with the guild, every night." },
+    { name: "Bean", role: "Open hearts", text: "Bean and Doc, hearts open wide." },
+    { name: "Doc", role: "Open hearts", text: "Bean and Doc, hearts open wide." },
+    { name: "Ley", role: "Charging in", text: "Ley and Kizzy, charging in." },
+    { name: "Kizzy", role: "Charging in", text: "Ley and Kizzy, charging in." },
+    { name: "Grim", role: "Day and night", text: "Grim and Code fight day and night." },
+    { name: "Code", role: "Day and night", text: "Grim and Code fight day and night." },
+    { name: "Chislev", role: "Wisdom", text: "Chislev's wisdom lights our path." },
   ],
 };
 
