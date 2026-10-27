@@ -2,7 +2,7 @@
 const GUILD = {
   stats: [
     { value: "2020", label: "Founded" },
-    { value: "50+", label: "Members over the years" },
+    { value: "248", label: "Discord members" },
     { value: "1000s", label: "Late nights" },
     { value: "1", label: "Family" },
   ],
