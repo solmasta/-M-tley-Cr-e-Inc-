@@ -1,16 +1,16 @@
 // EDIT THIS: all of the site's content lives here. These are placeholders.
 const GUILD = {
   stats: [
-    { value: "2020", label: "Founded" },
+    { value: "2022", label: "First raid log" },
     { value: "248", label: "Discord members" },
-    { value: "1000s", label: "Raid nights" },
+    { value: "SoO", label: "Full clear, Aug 2026" },
     { value: "1", label: "Family" },
   ],
   timeline: [
-    { date: "The Beginning", title: "The guild tag goes up", text: "A few friends, a guild charter and a very loud first night." },
-    { date: "The Grind", title: "Learning to raid", text: "Dungeons, first pulls and a lot of learning the hard way." },
-    { date: "The Glory", title: "The kill everyone remembers", text: "The boss that finally went down. Replace with the real one." },
-    { date: "Today", title: "Still here", text: "Tags fade, expansions end, the friendships stay." },
+    { date: "June 30, 2022", title: "The logs begin", text: "Sol posts the first report in #logs-for-dayz: Zul'Aman, 6-29." },
+    { date: "July 2022", title: "Karazhan nights", text: "Cuddly's 7-2 Kara log, and another Kara run two days later." },
+    { date: "2022 – 2026", title: "Four years of reports", text: "Every raid night left a log. Add the milestones in between here." },
+    { date: "August 4, 2026", title: "Garrosh down. First full clear.", text: "Siege of Orgrimmar, Week 9. Leyenelf posted it: \"GARY DOWN! FIRST FULL CLEAR BABY!\"" },
   ],
   // From the lyrics of "Brothers of Azeroth". Add roles and real stories.
   crew: [
