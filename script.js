@@ -1,16 +1,16 @@
 // EDIT THIS: all of the site's content lives here. These are placeholders.
 const GUILD = {
   stats: [
-    { value: "2022", label: "First raid log" },
+    { value: "4+", label: "Years together" },
     { value: "248", label: "Discord members" },
-    { value: "SoO", label: "Full clear, Aug 2026" },
+    { value: "Aug 2026", label: "First full clear" },
     { value: "1", label: "Family" },
   ],
   timeline: [
-    { date: "June 30, 2022", title: "The logs begin", text: "Sol posts the first report in #logs-for-dayz: Zul'Aman, 6-29." },
-    { date: "July 2022", title: "Karazhan nights", text: "Cuddly's 7-2 Kara log, and another Kara run two days later." },
-    { date: "2022 – 2026", title: "Four years of reports", text: "Every raid night left a log. Add the milestones in between here." },
-    { date: "August 4, 2026", title: "Garrosh down. First full clear.", text: "Siege of Orgrimmar, Week 9. Leyenelf posted it: \"GARY DOWN! FIRST FULL CLEAR BABY!\"" },
+    { date: "June 30, 2022", title: "The record begins", text: "The first report goes up in #logs-for-dayz. Nights together start getting written down." },
+    { date: "July 2022", title: "A routine forms", text: "More reports, more regulars, the same crew showing up." },
+    { date: "2022 – 2026", title: "Four years together", text: "Everything in between. Add your milestones here." },
+    { date: "August 4, 2026", title: "First full clear", text: "Leyenelf posted it: \"GARY DOWN! FIRST FULL CLEAR BABY!\"" },
   ],
   // From the lyrics of "Brothers of Azeroth". Add roles and real stories.
   crew: [
