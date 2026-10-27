@@ -1,0 +1,6 @@
+# Never commit Discord exports or secrets
+exports/
+discord-export/
+*.zip
+*.token
+.env
