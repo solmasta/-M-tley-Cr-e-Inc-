@@ -3,22 +3,22 @@ const GUILD = {
   stats: [
     { value: "2020", label: "Founded" },
     { value: "248", label: "Discord members" },
-    { value: "1000s", label: "Late nights" },
+    { value: "1000s", label: "Raid nights" },
     { value: "1", label: "Family" },
   ],
   timeline: [
-    { date: "The Beginning", title: "The first recruit", text: "A tiny group, a guild tag, and big plans." },
-    { date: "The Grind", title: "Finding our groove", text: "Raids, runs and a roster that kept growing." },
-    { date: "The Glory", title: "Our biggest night", text: "The one everyone still talks about." },
-    { date: "Today", title: "Still here", text: "The tag may fade, the friendships don't." },
+    { date: "The Beginning", title: "The guild tag goes up", text: "A few friends, a guild charter and a very loud first night." },
+    { date: "The Grind", title: "Learning to raid", text: "Dungeons, first pulls and a lot of learning the hard way." },
+    { date: "The Glory", title: "The kill everyone remembers", text: "The boss that finally went down. Replace with the real one." },
+    { date: "Today", title: "Still here", text: "Tags fade, expansions end, the friendships stay." },
   ],
   crew: [
     { name: "Guild Master", role: "Founder", text: "Started it all. Held it together." },
-    { name: "Officer One", role: "Officer", text: "Kept the raids on time (mostly)." },
-    { name: "Officer Two", role: "Officer", text: "Voice of reason and keeper of the loot rules." },
-    { name: "The Tank", role: "Member", text: "Never let anyone fall." },
-    { name: "The Healer", role: "Member", text: "Always one heal short, always one heal enough." },
-    { name: "The Wildcard", role: "Member", text: "Chaos incarnate. We loved it." },
+    { name: "Raid Leader", role: "Officer", text: "Called the pulls, ate the blame." },
+    { name: "Loot Officer", role: "Officer", text: "Keeper of the loot rules and the drama." },
+    { name: "The Tank", role: "Tank", text: "Never let anyone fall." },
+    { name: "The Healer", role: "Healer", text: "Always one heal short, always one heal enough." },
+    { name: "The Wildcard", role: "DPS", text: "Pulled before the tank. Every time. We loved it." },
   ],
 };
 
