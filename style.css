@@ -109,3 +109,8 @@ footer { text-align: center; padding: 72px 24px 48px; color: var(--muted); font-
   html { scroll-behavior: auto; }
   .card:hover { transform: none; }
 }
+
+.actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.btn-alt { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
+.btn-alt:hover { background: var(--gold); color: #000; }
+footer a { color: var(--gold); }
