@@ -114,3 +114,13 @@ footer { text-align: center; padding: 72px 24px 48px; color: var(--muted); font-
 .btn-alt { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
 .btn-alt:hover { background: var(--gold); color: #000; }
 footer a { color: var(--gold); }
+
+.community {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  background: var(--panel); padding: 22px; border-radius: 6px; border: 1px solid #25252b; border-left: 4px solid var(--accent);
+}
+.community img { border-radius: 50%; }
+.c-info { flex: 1 1 200px; }
+.c-info h3 { margin: 0; }
+.c-info p { margin: 4px 0 0; }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #3ba55d; margin-right: 6px; }

@@ -74,3 +74,25 @@ document.getElementById("wall-form").addEventListener("submit", e => {
 });
 
 renderWall();
+
+// Live Discord stats, fetched in the visitor's browser. Falls back silently.
+(async () => {
+  try {
+    const r = await fetch("https://discord.com/api/v9/invites/9A5HTbq2h?with_counts=true");
+    if (!r.ok) return;
+    const d = await r.json();
+    const g = d.guild;
+    if (!g) return;
+    document.getElementById("c-name").textContent = g.name;
+    if (g.icon) {
+      const img = document.getElementById("c-icon");
+      img.src = `https://cdn.discordapp.com/icons/${g.id}/${g.icon}.png?size=128`;
+      img.hidden = false;
+    }
+    const counts = document.getElementById("c-counts");
+    counts.replaceChildren();
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    counts.append(dot, `${d.approximate_presence_count} online · ${d.approximate_member_count} members`);
+  } catch {}
+})();
