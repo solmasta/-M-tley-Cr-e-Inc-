@@ -8,7 +8,8 @@ const GUILD = {
   timeline: [
     { date: "June 30, 2022", title: "The record begins", text: "The first report goes up in #logs-for-dayz. Nights together start getting written down." },
     { date: "July 2022", title: "A routine forms", text: "More reports, more regulars, the same crew showing up." },
-    { date: "2022 – 2026", title: "Four years together", text: "The wipes, the music, the inside jokes and everything in between." },
+    { date: "June 9, 2024", title: "The guild bank opens", text: "Guildies list their professions so nobody has to chase recipes alone." },
+    { date: "September 5, 2024", title: "Tips and guides", text: "Macros, boss plans and banter get written down for everyone." },
     { date: "August 4, 2026", title: "First full clear", text: "Leyenelf posted it: \"GARY DOWN! FIRST FULL CLEAR BABY!\"" },
     { date: "Encore", title: "The Final Tour", text: "Thank you for every night." },
   ],
@@ -19,7 +20,7 @@ const GUILD = {
     { name: "Bean", role: "Open hearts", text: "Bean and Doc, hearts open wide." },
     { name: "Doc", role: "Open hearts", text: "Bean and Doc, hearts open wide." },
     { name: "Ley", role: "Charging in", text: "Ley and Kizzy, charging in." },
-    { name: "Kizzy", role: "Charging in", text: "Ley and Kizzy, charging in." },
+    { name: "Kizzy", role: "Charging in", text: "Ley and Kizzy, charging in. A maxed potion master with an alt for every craft." },
     { name: "Grim", role: "Day and night", text: "Grim and Code fight day and night." },
     { name: "Code", role: "Day and night", text: "Grim and Code fight day and night." },
     { name: "Chislev", role: "Wisdom", text: "Chislev's wisdom lights our path." },
