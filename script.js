@@ -20,7 +20,7 @@ const GUILD = {
     { name: "Kuddless Bubba", role: "Always by our side", text: "Stands with the guild, every night." },
     { name: "Bean", role: "Open hearts", text: "Bean and Doc, hearts open wide." },
     { name: "Doc", role: "Open hearts", text: "Bean and Doc, hearts open wide." },
-    { name: "Ley", role: "Charging in", text: "Ley and Kizzy, charging in." },
+    { name: "Ley (Leyenelf)", role: "Charging in", text: "Ley and Kizzy, charging in. Posted the first guide in the tips channel and the Siege of Orgrimmar clear." },
     { name: "Kizzy", role: "Charging in", text: "Ley and Kizzy, charging in. A maxed potion master with max cooking, plus leatherworking, enchanting and inscription alts." },
     { name: "Grim", role: "Day and night", text: "Grim and Code fight day and night." },
     { name: "Code", role: "Day and night", text: "Grim and Code fight day and night." },
