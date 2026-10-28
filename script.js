@@ -1,12 +1,13 @@
 // EDIT THIS: the site's content lives here.
 const GUILD = {
   stats: [
-    { value: "4+", label: "Years together" },
+    { value: "Ventrilo", label: "Where it started" },
     { value: "248", label: "Discord members" },
     { value: "Aug 2026", label: "First full clear" },
   ],
   timeline: [
-    { date: "June 10, 2022", title: "The server is created", text: "Mötley Crüe Inc. gets its Discord server." },
+    { date: "The Ventrilo days", title: "Where it started", text: "Long before Discord, the guild talked on Ventrilo." },
+    { date: "June 10, 2022", title: "The Discord server is created", text: "Mötley Crüe Inc. gets its Discord server." },
     { date: "June 30, 2022", title: "The record begins", text: "The first report goes up in #logs-for-dayz." },
     { date: "July 2022", title: "More raiders post their nights", text: "Other raiders start adding their own reports to #logs-for-dayz." },
     { date: "June 9, 2024", title: "Who has what", text: "Guildies list their professions in #guild-bank-item-requests so recipes can be shared." },
